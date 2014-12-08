@@ -22,7 +22,7 @@
 \newcommand{\mdesc}[1]{{\sffamily\kaishu\color{red} #1}}
 \newcommand{\myem}[1]{{\bfseries\color{red} #1}}
 \newcommand{\myemph}[1]{{\sffamily\kaishu\color{red!80!orange} #1}}
-\newcommand{\Warning}{\myem{\Large \rule{0pt}{1.9em}不耐心看完文档的话就没人回答你的问题哦}}
+\newcommand{\Warning}{\myem{\Large \rule{0pt}{1.4em}不耐心看完文档的话就没人回答你的问题哦}}
 \newcommand{\warning}{\cleaders\hbox to \linewidth{\hss\Warning\hss}\vfill}
 \begin{document}
 \maketitle
@@ -110,15 +110,7 @@ MWE 是 Minimal Working Example 的缩写，意思是「最小工作示例」。
 
 \paragraph{给出完整准确的错误提示} % (fold)
 \label{par:Err_message}
-\LaTeX{} 的错误提示分成四个部分，
-\begin{enumerate}
-  \item 错误名称；
-  \item 提示建议；
-  \item 出错位置；
-  \item 询问提示符。
-\end{enumerate}
-
-我们来看一个例子。
+\LaTeX{} 的错误提示分成四个部分，我们用一个例子来解释这四个部分分别是什么。
 
 \medskip
 
@@ -143,7 +135,7 @@ MWE 是 Minimal Working Example 的缩写，意思是「最小工作示例」。
 
 \myemph{\bfseries 错误截图应该总是全部四个部分，即从叹号开始，到问号结束。}
 % paragraph Err_message (end)
-\clearpage
+% \clearpage
 \paragraph{提问者常犯的错误} % (fold)
 \label{subp:Frequant_Problems}
 提问者常犯的错误有三：一是只提供代码截图；二是只提供代码片段；三是代码冗余不加删节。
