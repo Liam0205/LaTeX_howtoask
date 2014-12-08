@@ -9,7 +9,13 @@
 \usepackage{xcolor}
 \usepackage{amsmath, amssymb}
 \usepackage{hologo}
-
+\usepackage{graphicx}
+\usepackage{enumitem}
+\setlist{noitemsep}
+\ifxetex\else
+  \usepackage{CJKspace}
+  \newcommand{\kaishu}{\CJKfamily{kai}}
+\fi
 \newcommand{\XeLaTeX}{\hologo{XeLaTeX}}
 \newcommand{\pdfLaTeX}{\hologo{pdfLaTeX}}
 \renewcommand{\CTeX}{\ensuremath{\mathbb{C}}\TeX}
@@ -30,7 +36,7 @@
 如果你在编译的时候遇到错误，请参照下面的模板提问。
 
 \begin{center}
-\fbox{\begin{minipage}{.85\linewidth}
+\fbox{\begin{minipage}{.9\linewidth}
   我编译遇到了错误，请问应该如何解决？是否还需要提供更多信息？谢谢！\par
   编译报错：\par
   \mdesc{这里填入编译报错信息的{\bfseries 截图}\par（报错信息通常是从一个行首的叹号开始，到一个行首的问号结束）}\par
@@ -50,7 +56,7 @@
 如果你编译的过程中没有遇到错误，但是编译出的 PDF 文档效果不满意，请参照下面的模板提问。
 
 \begin{center}
-\fbox{\begin{minipage}{.85\linewidth}
+\fbox{\begin{minipage}{.9\linewidth}
   我编译之后效果不对，请问应该如何解决？是否还需要提供更多信息？谢谢！\par
   当前效果：\par
   \mdesc{相应 PDF 截图}
@@ -102,6 +108,42 @@ MWE 是 Minimal Working Example 的缩写，意思是「最小工作示例」。
 
 时间对任何人都是一笔宝贵的财富。如果提供的代码冗长，则回答者势必要花费大量时间阅读不必要的代码。这浪费了回答者的时间，也浪费了提问者的时间（需要等待更久）。因此有必要让示例足够\myemph{简短}。
 
+\paragraph{给出完整准确的错误提示} % (fold)
+\label{par:Err_message}
+\LaTeX{} 的错误提示分成四个部分，
+\begin{enumerate}
+  \item 错误名称；
+  \item 提示建议；
+  \item 出错位置；
+  \item 询问提示符。
+\end{enumerate}
+
+我们来看一个例子。
+
+\medskip
+
+\hskip -1.2in\hbox to 0pt{\begin{minipage}[b]{.33\linewidth}
+\begin{verbatim}
+\documentclass{minimal}
+\begin{document}
+\usepackage{amsmath}
+\end{document}
+\end{verbatim}\end{minipage}}\hfill\raisebox{-.5ex}{\includegraphics[scale = 0.8]{err_msg.png}}
+
+右边截图是左边代码编译时的报错。其中：
+\begin{description}[align = right,
+  leftmargin = 2\ccwd, itemindent = 0pt, labelwidth = 5\ccwd]
+  \item[错误名称] 以叹号开头的行说明出错原因，示例中提示：「\LaTeX{} 错误：只能用在导言区」。
+  \item[提示建议] 中间段落是 \LaTeX{} 给出的提示建议。
+  \item[出错位置] 以字母 \texttt{l} 开头的那一行给出出错的具体为止。可以看到代码在 \verb|\usepackage| 之后截断分为两行，这说明问题出在截断。这里是第三行的 \verb|\usepackage| 出错了。
+  \item[询问提示符] 以问号开头的行，表示 \LaTeX{} 正在等待用户输入。
+\end{description}
+
+综合可得：「第三行的 \verb|\usepackage| 只能放在导言区，不能放在正文部分」。
+
+\myemph{\bfseries 错误截图应该总是全部四个部分，即从叹号开始，到问号结束。}
+% paragraph Err_message (end)
+\clearpage
 \paragraph{提问者常犯的错误} % (fold)
 \label{subp:Frequant_Problems}
 提问者常犯的错误有三：一是只提供代码截图；二是只提供代码片段；三是代码冗余不加删节。
