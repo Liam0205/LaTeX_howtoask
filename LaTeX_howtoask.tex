@@ -1,7 +1,7 @@
 %!TEX program = xelatex
-\documentclass[hyperref]{ctexart}
-\title{{\bfseries 你想让你的问题尽快得到解答吗？}}
-\author{Ch'en Meng}
+\documentclass[UTF8]{ctexart}
+\title{你想让你的问题尽快得到解答吗？}
+\author{Liam Huang}
 \date{\today}
 
 \usepackage{geometry}
@@ -15,14 +15,22 @@
 \ifxetex\else
   \usepackage{CJKspace}
 \fi
+\usepackage{hyperref}
+\hypersetup{colorlinks}
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd{\@maketitle}{\LARGE \@title \par}{\Huge \bfseries \@title \par}{}{}
+\makeatother
+
 \newcommand{\XeLaTeX}{\hologo{XeLaTeX}}
 \newcommand{\pdfLaTeX}{\hologo{pdfLaTeX}}
-\renewcommand{\CTeX}{\ensuremath{\mathbb{C}}\TeX}
+\renewcommand{\CTeX}{\ensuremath{\mathbb{C}}\!\TeX}
 \newcommand{\mdesc}[1]{{\sffamily\kaishu\color{red} #1}}
 \newcommand{\myem}[1]{{\bfseries\color{red} #1}}
 \newcommand{\myemph}[1]{{\sffamily\kaishu\color{red!80!orange} #1}}
 \newcommand{\Warning}{\myem{\Large \rule{0pt}{1.4em}不耐心看完文档的话就没人回答你的问题哦}}
 \newcommand{\warning}{\cleaders\hbox to \linewidth{\hss\Warning\hss}\vfill}
+
 \begin{document}
 \maketitle
 \warning
@@ -76,11 +84,11 @@
 \section{提问之前，你应该做的事情} % (fold)
 \label{sec:before_question}
 \paragraph{查阅文档} % (fold)
-\label{par:REFM}
+\label{par:RTFM}
 大多数的问题，文档都能为你提供标准的解答。因此在你提问之前，你最好先去阅读一下相关的文档，至少确保你阅读过一份完整的入门文档\footnote{\url{http://zip.xelatex.tk}}。如果你能够在你提问的同时表明自己已经阅读过文档， 但是依旧留有困惑,潜在的回答者会更加愿意为你解答。如果你不知道如何寻找文档，请阅读下面的「新手请先读我」。
 
-中文 \TeX{} 社区三个著名的文档：\href{http://bbs.ctex.org/forum.php?mod=viewthread&tid=48244}{新手请先读我}、\href{http://www.ctex.org/CTeXFAQ}{\CTeX{} FAQ}、\href{ftp://ftp.chinatex.org/TeXDoc/FAQ/ChinaTeXMathFAQ_V1.1.pdf}{China\TeX{} Math FAQ}。
-% paragraph REFM (end)
+中文 \TeX{} 社区两个著名的文档：\href{http://bbs.ctex.org/forum.php?mod=viewthread&tid=48244}{新手请先读我}、\href{http://liam0205.me/uploads/LaTeX/ChinaTeXMathFAQ_V1.1.pdf}{China\TeX{} Math FAQ}。
+% paragraph RTFM (end)
 \paragraph{检索互联网} % (fold)
 \label{par:STFW}
 \TeX{} 是一个成熟而经典的工具，人们使用它已有三十多年。初学者遇到的绝大部分问题都能够在互联网上找到成熟的答案。你最好是先在互联网上检索，再进行提问。
@@ -151,6 +159,6 @@ MWE 是 Minimal Working Example 的缩写，意思是「最小工作示例」。
 \label{sec:Smart_question}
 这是一篇最先由 Eric Steven Raymond 撰写的文档,说明了提问者应当如何提问,使得回答者能 够更容易理解并能使提问者学到更多东西。
 
-参见它的\href{http://www.catb.org/~esr/faqs/smart-questions.html}{英文原版}和\href{http://www.wapm.cn/smart-questions/smart-questions-zh.html}{中文译文}。
+参见它的\href{http://www.catb.org/~esr/faqs/smart-questions.html}{英文原版}和\href{https://github.com/ryanhanwu/How-To-Ask-Questions-The-Smart-Way}{中文译文}。
 % section Smart_question (end)
 \end{document}

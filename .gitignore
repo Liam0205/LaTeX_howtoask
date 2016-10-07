@@ -12,4 +12,5 @@
 *.ilg
 *.out
 *.synctex.gz
+*.fls
 .texpadtmp/
